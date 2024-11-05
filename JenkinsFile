@@ -1,23 +1,19 @@
 pipeline {
     agent any
     stages {
-            stage('Checkout') {
-                steps {
-                    git branch: 'master',
-                    url: 'https://github.com/FarahChelbi/devops.git';
-                }
+        stage('Checkout') {
+            steps {
+                git branch: 'farah',
+                url: 'https://github.com/FarahChelbi/devops.git'
             }
-
-
-
-                 post {
-                     success {
-                         echo 'Build finished successfully!'
-                     }
-                     failure {
-                         echo 'Build failed!'
-                     }
-                 }
-
-
+        }
+    }
+    post {
+        success {
+            echo 'Build finished successfully!'
+        }
+        failure {
+            echo 'Build failed!'
+        }
+    }
 }
